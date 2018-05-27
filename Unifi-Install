@@ -65,7 +65,7 @@ I=$IP
 #fi
 
 if [[ "$I" =~ (([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5]))$ ]]; then
-  echo "Valid IP Entered"
+  echo "Checking to see if this IP is in use..."
 else
   echo "That is not a valid IP Address. Please enter a valid IP Address:"
   read IP
@@ -102,8 +102,8 @@ if [[ "$I" =~ (([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0
   echo "Valid IP Entered"
 else
   echo "That is not a valid IP Address. Please enter a valid IP Address:"
-  read IP
-  validIP
+  read SUBNET
+  validSUBNET
   return 0
 fi
 }
@@ -111,7 +111,7 @@ fi
 validSUBNET
 
 echo 
-echo "$SUBNET is a valid SUBNET MASK"
+echo "$SUBNET will be the SUBNET MASK"
 echo
 
 #Ask for a Default Gateway
@@ -126,8 +126,8 @@ if [[ "$I" =~ (([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0
   echo "Valid IP Entered"
 else
   echo "That is not a valid IP Address. Please enter a valid IP Address:"
-  read IP
-  validIP
+  read GATE
+  validGATE
   return 0
 fi
 }
@@ -135,7 +135,7 @@ fi
 validGATE
 
 echo 
-echo "$GATE is a valid Default Gateway"
+echo "$GATE will be the Default Gateway"
 echo
 fi #Line 42
 
@@ -153,8 +153,8 @@ if [[ "$I" =~ (([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0
   echo "Valid IP Entered"
 else
   echo "That is not a valid IP Address. Please enter a valid IP Address:"
-  read IP
-  validIP
+  read DNS1
+  validDNS1
   return 0
 fi
 }
@@ -162,7 +162,7 @@ fi
 validDNS1
 
 echo 
-echo "$DNS1 is a valid Primary DNS Server"
+echo "$DNS1 will be the Primary DNS Server"
 echo
 
 #Ask for a Hostname
