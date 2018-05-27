@@ -64,8 +64,10 @@ I=$IP
 #return 0
 #fi
 
-if [[ $I !=~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-  echo "failure"
+if [[ "$I" =~ (([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5]))$ ]]; then
+  echo "Valid IP Entered"
+else
+  echo "That is not a valid IP Address. Please enter a valid IP Address:"
   read IP
   validIP
   return 0
@@ -96,11 +98,13 @@ read SUBNET
 validSUBNET()
 {
 I=$SUBNET
-if [ "$(ipcalc -cs $I && echo 1 || echo 0)" == 0 ]; then
-echo "Please enter a valid SUBNET MASK:"
-read SUBNET
-validSUBNET
-return 0
+if [[ "$I" =~ (([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5]))$ ]]; then
+  echo "Valid IP Entered"
+else
+  echo "That is not a valid IP Address. Please enter a valid IP Address:"
+  read IP
+  validIP
+  return 0
 fi
 }
 
@@ -118,11 +122,13 @@ read GATE
 validGATE()
 {
 I=$GATE
-if [ "$(ipcalc -cs $I && echo 1 || echo 0)" == 0 ]; then
-echo "Please enter a valid Default Gateway:"
-read GATE
-validGATE
-return 0
+if [[ "$I" =~ (([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5]))$ ]]; then
+  echo "Valid IP Entered"
+else
+  echo "That is not a valid IP Address. Please enter a valid IP Address:"
+  read IP
+  validIP
+  return 0
 fi
 }
 
@@ -143,11 +149,13 @@ read DNS1
 validDNS1()
 {
 I=$DNS1
-if [ "$(ipcalc -cs $I && echo 1 || echo 0)" == 0 ]; then
-echo "Please enter a valid Primary DNS Server:"
-read DNS1
-validDNS1
-return 0
+if [[ "$I" =~ (([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5]))$ ]]; then
+  echo "Valid IP Entered"
+else
+  echo "That is not a valid IP Address. Please enter a valid IP Address:"
+  read IP
+  validIP
+  return 0
 fi
 }
 
@@ -162,7 +170,7 @@ echo "Please enter a Hostname for this Server. WARNING: Whatever you enter WILL 
 read HOST
 echo
 echo
-echo "Applying your settings."
+echo "Applying your settings..."
 echo
 #Configure static IP
 cat <<EOF > /etc/network/interfaces
