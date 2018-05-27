@@ -13,6 +13,6 @@ echo 'Updating Repos'
 sudo apt-get update 
 echo 'Installing Unifi Controller'
 sudo apt-get install unifi -y
-echo 'Unifi Server is now installed. Access the Controller via https://<server IP>:8443
-echo 'Manually run discovery by entering the following command: java -jar /usr/lib/unifi/lib/ace.jar
+echo 'Unifi Server is now installed. Access the Controller via https://<server IP>:8443'
+echo 'Manually run discovery by entering the following command: java -jar /usr/lib/unifi/lib/ace.jar'
 echo
